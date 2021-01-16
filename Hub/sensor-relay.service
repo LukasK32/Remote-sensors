@@ -1,0 +1,16 @@
+[Unit]
+Description=Sensor Relay for InfluxDB
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=python /home/pi/sensor-relay/sensor-relay.py
+User=pi
+Group=pi
+Restart=on-failure
+SyslogIdentifier=sensor-relay
+RestartSec=5
+TimeoutStartSec=infinity
+
+[Install]
+WantedBy=multi-user.target
